@@ -1,0 +1,30 @@
+@*************************************
+* Custom DataGrid Template.          *
+*                                    *
+* @param dgId 表格ID                  *
+* @param persons 数据                 *
+*************************************@
+@(dataGridId:String)(persons:List[Person])
+
+<table id="@dataGridId" class="table table-bordered table-hove table-striped">
+    <thead>
+        <tr>
+            @persons
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>操作</td>
+        </tr>
+    </thead>
+    <tbody>
+    @for(p <- persons) {
+    <tr data-id="@p.id" data-name="@p.name" data-age="@p.age">
+        <td>@p.name</td>
+        <td>@p.age</td>
+        <td>
+            <button type="button" class="btn btn-success" id="update-@p.id">修改</button>
+            <button type="button" class="btn btn-success" id="delete-@p.id">删除</button>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
