@@ -3,7 +3,8 @@ package models
 /**
  * Created by crjun on 14-4-22.
  */
-class Person(i:Int, n:String, a:Int) extends View {
+case class Person(i:Int, n:String, a:Int) extends View {
+  @MyTitle(name = "MMM")
   var id = i
   var name = n
   var age = a
